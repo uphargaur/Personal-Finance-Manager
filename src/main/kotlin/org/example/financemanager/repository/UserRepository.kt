@@ -1,6 +1,6 @@
-package org.example.financemanager.infrastructure
+package org.example.financemanager.repository
 
-import org.example.financemanager.domain.Client
+import org.example.financemanager.domain.client.Client
 import org.springframework.data.mongodb.repository.MongoRepository
 import org.springframework.stereotype.Repository
 

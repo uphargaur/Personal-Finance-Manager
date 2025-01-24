@@ -1,4 +1,4 @@
-package org.example.financemanager.domain
+package org.example.financemanager.domain.client
 
 import jakarta.persistence.*
 import org.springframework.data.mongodb.core.mapping.Document

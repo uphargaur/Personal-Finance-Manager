@@ -1,17 +1,19 @@
-package org.example.financemanager.application.UserService
+package org.example.financemanager.application.userServices
 
-import org.example.financemanager.domain.Client
-import org.example.financemanager.infrastructure.UserRepository
+
+import org.example.financemanager.domain.client.Client
+import org.example.financemanager.repository.UserRepository
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder
 import org.springframework.stereotype.Service
 
 @Service
-class UserService(
+class UserServiceImpl(
     private val userRepository: UserRepository,
     private val passwordEncoder: BCryptPasswordEncoder
-) {
-    fun registerUser(name: String, email: String, password: String): Client {
-        println("Registering user $name")  // Change this line
+) : UserService {
+
+    override fun registerUser(name: String, email: String, password: String): Client {
+        println("user $name")
         if (userRepository.existsByEmail(email)) {
             throw IllegalArgumentException("Email already registered")
         }
@@ -20,7 +22,7 @@ class UserService(
         return userRepository.save(client)
     }
 
-    fun authenticateUser(email: String, password: String): Client {
+    override fun authenticateUser(email: String, password: String): Client {
         val user = userRepository.findByEmail(email)
             ?: throw IllegalArgumentException("Invalid email or password")
         if (!passwordEncoder.matches(password, user.password)) {

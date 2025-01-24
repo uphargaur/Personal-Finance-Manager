@@ -28,7 +28,6 @@ dependencies {
     implementation("org.jetbrains.kotlin:kotlin-reflect")
     implementation("org.thymeleaf.extras:thymeleaf-extras-springsecurity6")
     runtimeOnly("com.h2database:h2")
-    implementation("io.jsonwebtoken:jjwt:0.9.1")
     testImplementation("org.springframework.boot:spring-boot-starter-test")
     testImplementation("org.jetbrains.kotlin:kotlin-test-junit5")
     implementation("org.springframework.boot:spring-boot-starter-web")
