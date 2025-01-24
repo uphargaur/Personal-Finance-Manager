@@ -8,6 +8,8 @@ import org.example.financemanager.repository.TransactionRepository
 import org.example.financemanager.utils.JwtUtil
 import org.example.financemanager.utils.TransactionCategoryConverter
 import org.springframework.stereotype.Service
+import java.time.LocalDate
+import java.time.format.DateTimeFormatter
 import java.util.UUID
 
 @Service
@@ -18,8 +20,12 @@ class ManageTransactionsImpl(
 
     override fun addTransaction(token: String, transactionRequest: TransactionRequest): TransactionRequest {
         val userId = jwtUtil.validateTokenAndGetUserId(token)
+        val formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd")
+        val transactionDate = LocalDate.parse(transactionRequest.date, formatter)
+        val year = transactionDate.year
+        val month = transactionDate.monthValue
         val userTransactions = transactionsRepository.findByUserId(userId)
-            ?: UserTransactions(userId = userId, transactions = mutableMapOf())
+            ?: UserTransactions(userId = userId, transactions = mutableMapOf(), year = year, month = month)
         val category = TransactionCategoryConverter.convertToTransactionCategory(transactionRequest.category)
         val transactionDetail = TransactionDetail(
             transactionId = UUID.randomUUID().toString(),

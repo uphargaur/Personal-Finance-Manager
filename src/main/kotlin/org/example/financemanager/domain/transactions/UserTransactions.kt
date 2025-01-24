@@ -6,6 +6,8 @@ import org.springframework.data.mongodb.core.mapping.Document
 data class UserTransactions(
     @Id
     val userId : String,
+    val year: Int,
+    val month: Int,
     val transactions: MutableMap<TransactionCategory, MutableList<TransactionDetail>>
 )
 
