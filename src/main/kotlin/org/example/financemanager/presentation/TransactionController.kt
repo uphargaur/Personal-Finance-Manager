@@ -32,23 +32,6 @@ TransactionController(
         }
     }
 
-    @GetMapping("/generate")
-    fun generateReport(
-        @RequestHeader("Authorization") token: String,
-        @RequestParam("month", required = false) month: Int?,
-        @RequestParam("year", required = false) year: Int?
-    ): ResponseEntity<ReportResponse> {
-        return try {
-            val userId = jwtUtil.validateTokenAndGetUserId(token)
-            val report = reportService.getReport(userId, month, year)
-            ResponseEntity.ok(report)
-        } catch (e: IllegalArgumentException) {
-            ResponseEntity.badRequest().body(null)
-        } catch (e: Exception) {
-            ResponseEntity.internalServerError().build()
-        }
-    }
-
     @GetMapping
     fun getTransactions(
         @RequestHeader("Authorization") token: String,
