@@ -38,7 +38,6 @@ TransactionController(
         @RequestParam("month", required = false) month: Int?,
         @RequestParam("year", required = false) year: Int?
     ): ResponseEntity<ReportResponse> {
-
         return try {
             val userId = jwtUtil.validateTokenAndGetUserId(token)
             val report = reportService.getReport(userId, month, year)
