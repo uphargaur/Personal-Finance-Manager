@@ -22,22 +22,16 @@ class ReportServiceImpl(
 
     override fun getReport(userId: String, month: Int?, year: Int?): ReportResponse {
         val currentDate = LocalDate.now()
-
         val targetMonth = month ?: currentDate.monthValue
         val targetYear = year ?: currentDate.year
-
         val userTransactions = transactionRepository.findByUserIdAndYearAndMonth(userId, targetYear, targetMonth)
-
         val transactions = userTransactions.flatMap { userTransaction ->
             userTransaction.transactions.flatMap { entry -> entry.value }
         }
-
         val totalIncome = transactions.filter { it.amount > 0 }.sumOf { it.amount }
         val totalExpenses = transactions.filter { it.amount < 0 }.sumOf { it.amount }
         val savings = totalIncome - totalExpenses
-
         val categoryBreakdown = getCategoryBreakdown(userTransactions)
-
         return ReportResponse(
             totalIncome = totalIncome,
             totalExpenses = totalExpenses,

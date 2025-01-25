@@ -2,16 +2,21 @@ package org.example.financemanager.presentation
 
 
 import org.example.financemanager.application.manageTransaction.ManageTransactions
+import org.example.financemanager.application.report.ReportService
+import org.example.financemanager.domain.Report.ReportResponse
 import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.*
 import org.example.financemanager.domain.Request.TransactionRequest
 import org.example.financemanager.domain.transactions.TransactionPageResponse
+import org.example.financemanager.utils.JwtUtil
 
 @RestController
 @RequestMapping("/transactions")
 class
 TransactionController(
-    private val manageTransactions: ManageTransactions
+    private val manageTransactions: ManageTransactions,
+    private val reportService: ReportService,
+    private val jwtUtil: JwtUtil
 ) {
 
     @PostMapping
@@ -24,6 +29,24 @@ TransactionController(
             return ResponseEntity.ok(transaction)
         } catch (ex: Exception) {
             return ResponseEntity.badRequest().build()
+        }
+    }
+
+    @GetMapping("/generate")
+    fun generateReport(
+        @RequestHeader("Authorization") token: String,
+        @RequestParam("month", required = false) month: Int?,
+        @RequestParam("year", required = false) year: Int?
+    ): ResponseEntity<ReportResponse> {
+
+        return try {
+            val userId = jwtUtil.validateTokenAndGetUserId(token)
+            val report = reportService.getReport(userId, month, year)
+            ResponseEntity.ok(report)
+        } catch (e: IllegalArgumentException) {
+            ResponseEntity.badRequest().body(null)
+        } catch (e: Exception) {
+            ResponseEntity.internalServerError().build()
         }
     }
 
