@@ -1,19 +1,42 @@
-# Personal Finance Manager
+# Personal Finance Manager 💰
 
-Personal Finance Manager is a robust platform for managing users' financial transactions, tracking spending habits, and generating insightful reports. It allows users to register, authenticate, and categorize their transactions under various predefined and custom categories.
+## Overview
+Personal Finance Manager is a comprehensive platform for tracking financial transactions, managing expenses, and generating insightful financial reports.
 
-This backend solution leverages Spring Boot, MongoDB, and JWT (JSON Web Tokens) for secure authentication and data storage. It provides essential features such as transaction tracking, custom category management, and monthly/yearly reports, and generates visual insights on financial activity.
+## 🛠️ Setup
+1. Clone the repository
+2. Install Java 17+
+3. Configure MongoDB
+4. Run with Gradle or Docker
 
-## Features
+
+
+## 🔗 Important Links
+* **Backend Deployment**: [Live API](https://syfe.uphargaur.tech/)
+* **Backend Repositories**:
+  * [Personal Finance Manager](https://github.com/uphargaur/Personal-Finance-Manager)
+  * [Personal Finance Dashboard](https://github.com/uphargaur/Personal-Finance-Dashboard)
+* **Frontend**: Coming Soon
+
+## 🚀 Features
 
 - **User Registration and Authentication:** Users can create an account and authenticate with email and password using JWT.
 - **Transaction Management:** Users can add, update, view, and delete transactions categorized into different categories such as `Food`, `Travel`, `Rent`, and custom categories.
 - **Custom Categories:** Users can add and manage custom categories for their transactions.
 - **Pagination Support:** Transactions are fetched with pagination for improved performance.
 - **Reports:** Generate detailed financial reports (monthly, yearly) showing income, expenses, and savings, along with visual representations like pie charts and bar graphs.
+
+
+
+
+  ![img_1.png](img_1.png)
+
+
+
+  ![img_2.png](img_2.png)
 - **Category Management:** Users can add and manage categories for transactions dynamically.
 
-## Technologies Used
+## 💻 Technologies Used
 
 - **Spring Boot:** A Java framework used to develop production-ready applications.
 - **MongoDB:** A NoSQL database used to store and retrieve data.
