@@ -27,12 +27,5 @@ class AppConfig :WebMvcConfigurer  {
 
         return http.build()
     }
-    override fun addCorsMappings(registry: CorsRegistry) {
-        registry.addMapping("/**")
-            .allowedOrigins("*")
-            .allowedMethods("GET", "POST", "PUT", "DELETE", "OPTIONS")
-            .allowedHeaders("*")
-            .exposedHeaders("Authorization")
-            .allowCredentials(true)
-    }
+
 }
