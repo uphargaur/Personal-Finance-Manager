@@ -1,15 +1,17 @@
-# Start with a base image containing Java runtime
-FROM openjdk:11
+# Use official OpenJDK runtime as base image
+FROM openjdk:17-jdk-slim
 
+# Set working directory in container
+WORKDIR /app
 
-# Make port 8080 available to the world outside this container
+# Copy the Gradle build artifacts
+COPY build/libs/*.jar app.jar
+
+# Expose port 8080
 EXPOSE 8080
 
-# The application's jar file
-ARG JAR_FILE=target/spring-boot-app-1.0.0.jar
-
-# Add the application's jar to the container
-ADD ${JAR_FILE} app.jar
+# Set environment variables for MongoDB connection (optional)
+ENV SPRING_DATA_MONGODB_URI=mongodb://mongodb:27017/finance_manager_db
 
 # Run the jar file
-ENTRYPOINT ["java","-Djava.security.egd=file:/dev/./urandom","-jar","/app.jar"]
+ENTRYPOINT ["java", "-jar", "app.jar"]
