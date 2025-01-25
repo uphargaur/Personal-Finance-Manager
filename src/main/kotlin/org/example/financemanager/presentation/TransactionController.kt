@@ -10,6 +10,8 @@ import org.example.financemanager.domain.Request.TransactionRequest
 import org.example.financemanager.domain.transactions.TransactionPageResponse
 import org.example.financemanager.utils.JwtUtil
 
+
+@CrossOrigin("*")
 @RestController
 @RequestMapping("/transactions")
 class
