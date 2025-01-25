@@ -18,6 +18,7 @@ class AppConfig {
             .authorizeRequests()
             .requestMatchers("/auth/**").permitAll()
             .requestMatchers("/transactions/**").permitAll()
+            .requestMatchers("/reports/**").permitAll()
             .and()
             .httpBasic()
 
