@@ -15,6 +15,7 @@ Personal Finance Manager is a comprehensive platform for tracking financial tran
 * **Backend Deployment**: [Live API](https://syfe.uphargaur.tech/)
 * **Backend Repositories**:
   * [Personal Finance Manager](https://github.com/uphargaur/Personal-Finance-Manager)
+* **Frontend Repositories**:
   * [Personal Finance Dashboard](https://github.com/uphargaur/Personal-Finance-Dashboard)
 * **Frontend**: Coming Soon
 
