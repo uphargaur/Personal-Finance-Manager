@@ -28,9 +28,9 @@ Personal Finance Manager is a comprehensive platform for tracking financial tran
 - **Pagination Support:** Transactions are fetched with pagination for improved performance.
 - **Reports:** Generate detailed financial reports (monthly, yearly) showing income, expenses, and savings, along with visual representations like pie charts and bar graphs.
 
-  [demo-syfe.mp4](demo-syfe.mp4)
 
-  ![img_1.png](img_1.png)
+
+[![Watch the Demo](https://img.youtube.com/vi/xPj_0hkgNiw/0.jpg)](https://youtu.be/xPj_0hkgNiw)
 
 
 
