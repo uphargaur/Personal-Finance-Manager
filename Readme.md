@@ -28,14 +28,12 @@ Personal Finance Manager is a comprehensive platform for tracking financial tran
 ## 🚀 Features
 
 - **User Registration and Authentication:** Users can create an account and authenticate with email and password using JWT.
+  ![img_3.png](img_3.png)
 - **Transaction Management:** Users can add, update, view, and delete transactions categorized into different categories such as `Food`, `Travel`, `Rent`, and custom categories.
+  ![img_4.png](img_4.png)
 - **Custom Categories:** Users can add and manage custom categories for their transactions.
 - **Pagination Support:** Transactions are fetched with pagination for improved performance.
 - **Reports:** Generate detailed financial reports (monthly, yearly) showing income, expenses, and savings, along with visual representations like pie charts and bar graphs.
-
-
-
-
 
   ![img_2.png](img_2.png)
 - **Category Management:** Users can add and manage categories for transactions dynamically.
