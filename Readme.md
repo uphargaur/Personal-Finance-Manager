@@ -12,13 +12,18 @@ Personal Finance Manager is a comprehensive platform for tracking financial tran
 
 
 ## 🔗 Important Links
+
 * **Backend Deployment**: [Live API](https://syfe.uphargaur.tech/)
 * **Backend Repositories**:
   * [Personal Finance Manager](https://github.com/uphargaur/Personal-Finance-Manager)
 * **Frontend Repositories**:
   * [Personal Finance Dashboard](https://github.com/uphargaur/Personal-Finance-Dashboard)
-* **Frontend**: 
+* **Frontend**:
   * [Website Vercel](https://personal-finance-dashboard-seven.vercel.app/)
+
+### Video Demo:
+
+[![Watch the Demo](https://img.youtube.com/vi/xPj_0hkgNiw/0.jpg)](https://youtu.be/xPj_0hkgNiw)
 
 ## 🚀 Features
 
@@ -29,8 +34,6 @@ Personal Finance Manager is a comprehensive platform for tracking financial tran
 - **Reports:** Generate detailed financial reports (monthly, yearly) showing income, expenses, and savings, along with visual representations like pie charts and bar graphs.
 
 
-
-[![Watch the Demo](https://img.youtube.com/vi/xPj_0hkgNiw/0.jpg)](https://youtu.be/xPj_0hkgNiw)
 
 
 
