@@ -1,6 +1,5 @@
 package org.example.financemanager.config
 
-
 import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.Configuration
 import org.springframework.security.config.annotation.web.builders.HttpSecurity
@@ -14,6 +13,7 @@ import org.springframework.web.cors.UrlBasedCorsConfigurationSource
 @Configuration
 @EnableWebSecurity
 class AppConfig {
+
     @Bean
     fun passwordEncoder() = BCryptPasswordEncoder()
 
@@ -22,7 +22,7 @@ class AppConfig {
         http
             .csrf { it.disable() }
             .cors { it.configurationSource(corsConfigurationSource()) }
-            .authorizeHttpRequests { it.anyRequest().permitAll() }
+            .authorizeRequests { it.anyRequest().permitAll() }
 
         return http.build()
     }
@@ -30,9 +30,14 @@ class AppConfig {
     @Bean
     fun corsConfigurationSource(): CorsConfigurationSource {
         val configuration = CorsConfiguration()
-        configuration.allowedOrigins = listOf("*")
-        configuration.allowedMethods = listOf("*")
-        configuration.allowedHeaders = listOf("*")
+
+        configuration.allowedOrigins = listOf("http://your-frontend-url.com") // or "*" for all origins
+        configuration.allowedMethods = listOf("GET", "POST", "PUT", "DELETE", "OPTIONS")
+        configuration.allowedHeaders = listOf("Authorization", "Content-Type")
+
+        configuration.allowCredentials = true
+
+        configuration.maxAge = 3600L
 
         val source = UrlBasedCorsConfigurationSource()
         source.registerCorsConfiguration("/**", configuration)
